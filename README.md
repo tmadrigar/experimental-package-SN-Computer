@@ -29,6 +29,7 @@ Assessment) with two application models:
 .
 ├── phase1-students/
 │   ├── data/case-study-1 … case-study-4/   Kahoot formative assessments, one CSV per group
+│   ├── data/preliminary-study/              learning style inventory of the 2023 preliminary study (n = 45)
 │   └── instruments/                         SECD scale, curriculum, and competition rubric
 ├── phase2-educators/
 │   ├── data/                                pre/post-test results
@@ -53,6 +54,13 @@ no correct answer.
 | 4 | Paranavaí | 19 | 18 | 37 |
 | | **Total** | **99** | **96** | **195** |
 
+### Preliminary study (`phase1-students/data/preliminary-study/`)
+
+`preliminary_study_LSI_45_participants.xlsx`: item responses of 45 volunteers (anonymized as
+`participante1` to `participante45`) to the learning style inventory used in the 2023 preliminary study.
+Item columns 1–12, 13–23, 24–34, and 35–44 are summed into the Accommodator, Converger, Assimilator,
+and Diverger scores used in Figure 2.
+
 ### Phase 2: educators (`phase2-educators/data/`)
 
 - `pre_post_test_87_educators.csv` (semicolon-separated, UTF-8): one row per educator with complete
@@ -68,22 +76,29 @@ and are therefore not published; their analysis is described in Section 4.2.3 of
 ```bash
 pip install -r requirements.txt
 python scripts/phase1_descriptive.py           # Phase 1: correct answers per session and per student
-python scripts/phase1_case_figures.py          # Figures 5–8 (HTML/SVG in figures/html)
-python scripts/phase1_boxplot_figure.py        # Figure 9 (HTML/SVG in figures/html)
-python scripts/phase2_teacher_model_figure.py  # Figure 4 (HTML/SVG in figures/html)
 python scripts/phase2_analysis.py              # Phase 2: pre/post means, paired t-test, normalized gain
-python scripts/phase2_geographic_figure.py     # Figure 10
+python scripts/figure1_architecture.py         # Figure 1
+python scripts/figure3_framework.py            # Figure 3
+python scripts/phase2_teacher_model_figure.py  # Figure 4
+python scripts/phase1_case_figures.py          # Figures 5–8
+python scripts/phase1_boxplot_figure.py        # Figure 9
+python scripts/figures2_10_11_charts.py        # Figures 2, 10, and 11
 ```
 
-The PNG files in `figures/` were exported from the HTML/SVG sources at 3× scale.
+Each figure script writes an HTML/SVG source to `figures/html/`; the PNG files in `figures/` were
+exported from these sources at 3× scale (figure scripts that export PNG directly require
+`pip install playwright` and `playwright install chromium`).
 
 | Figure / result in the article | Source |
 |---|---|
+| Figure 1 (conceptual architecture) | `figure1_architecture.py` |
+| Figure 2 (correlation matrix of learning styles) | `figures2_10_11_charts.py` + `phase1-students/data/preliminary-study/` |
+| Figure 3 (operational flow of the framework) | `figure3_framework.py` |
+| Figure 4 (phases of the Manna-Teacher Model) | `phase2_teacher_model_figure.py` |
 | Figures 5–8 (correct answers per Kahoot session) | `phase1_case_figures.py` + `phase1-students/data/` |
 | Figure 9 (distribution of formative scores) | `phase1_boxplot_figure.py` + `phase1-students/data/` |
-| Figure 4 (phases of the Manna-Teacher Model) | `phase2_teacher_model_figure.py` |
-| Figure 10 (geographic distribution) | `phase2_geographic_figure.py` |
-| Pre/post-test means and normalized gain (Section 4.2.2) | `phase2_analysis.py` + `phase2-educators/data/` |
+| Figures 10–11 (educators by federal unit; pre/post-test scores) | `figures2_10_11_charts.py` + `phase2-educators/data/` |
+| Pre/post-test means, paired t-test, and normalized gain (Section 4.2.2) | `phase2_analysis.py` + `phase2-educators/data/` |
 
 ## Ethics and privacy
 
