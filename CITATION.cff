@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use these data or scripts, please cite the article and this repository."
+title: "Experimental package: Manna Methodology (SN Computer Science)"
+type: dataset
+authors:
+  - family-names: Madrigar
+    given-names: Tiago Tadeu
+    orcid: "https://orcid.org/0000-0003-4244-0509"
+    affiliation: State University of Maringá
+  - family-names: Calvo
+    given-names: Rodrigo
+    orcid: "https://orcid.org/0000-0003-1068-5501"
+    affiliation: State University of Maringá
+  - family-names: Aylon
+    given-names: Linnyer Beatrys Ruiz
+    orcid: "https://orcid.org/0000-0002-4456-6829"
+    affiliation: State University of Maringá
+license: CC-BY-4.0
+repository-code: "https://github.com/tmadrigar/experimental-package-SN-Computer"
+preferred-citation:
+  type: article
+  title: "Manna Methodology: An Integrative Framework for Learning, Assessment, and Socio-Emotional Skills in Education 5.0"
+  authors:
+    - family-names: Madrigar
+      given-names: Tiago Tadeu
+    - family-names: Calvo
+      given-names: Rodrigo
+    - family-names: Aylon
+      given-names: Linnyer Beatrys Ruiz
+  journal: "SN Computer Science"
+  year: 2026
